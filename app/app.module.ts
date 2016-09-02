@@ -1,8 +1,11 @@
 /// <reference path='../typings/globals/angular/index.d.ts' />
 import * as angular from "angular";
-import {IndexCtrl} from "./index.controller";
-import {IndexService} from "./index.service";
+import "angular-ui-router";
+import "templates";
+import bookMgmtModuleName from "./book-mgmt/book-mgmt.module";
 
-angular.module('app', [])
-  .controller('IndexCtrl', IndexCtrl)
-  .service('indexService', IndexService);
+angular.module('app', [bookMgmtModuleName])
+  .config(function ($urlRouterProvider:angular.ui.IUrlRouterProvider, $locationProvider:ng.ILocationProvider) {
+    $urlRouterProvider.when('', '/book-mgmt/books');
+    $locationProvider.html5Mode(false);
+  });

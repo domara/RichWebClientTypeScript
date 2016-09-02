@@ -17,16 +17,11 @@
   <!-- endbuild -->
 </head>
 <body class="app" data-ng-app="app">
-<section data-ng-controller="IndexCtrl as indexCtrl">
-  <div class="hello">
-    <span id="name">{{indexCtrl.introduceYourself()}}</span></div>
-  <div>
-    <p class="bind" data-ng-bind="indexCtrl.introduceYourself()"></p>
-  </div>
-  <input type="text" data-ng-model="name">
-  <input type="text" data-ng-model="surname">
-  <button data-ng-click="indexCtrl.introduceSomeone(name,surname)">Click me</button>
-</section>
+<nav>
+  <li data-ui-sref-active="active"><a href data-ui-sref="book-overview">Book Overview</a></li>
+  <li data-ui-sref-active="active"><a href data-ui-sref="book-details">New Book</a></li>
+</nav>
+<section data-ui-view></section>
 </body>
 
 
