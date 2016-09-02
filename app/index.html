@@ -16,8 +16,13 @@
   <link rel="stylesheet" href="css/app.css">
   <!-- endbuild -->
 </head>
-<body>
-<h1>Hello World!</h1>
+<body class="app" data-ng-app="">
+<input type="text" ng-model="name" placeholder="Enter the book title">
+<div class="hello">Hello
+  <span id="name">{{name}}</span></div>
+<div>
+  <p class="bind" ng-bind="name"></p>
+</div>
 </body>
 </section>
 
