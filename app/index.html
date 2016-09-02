@@ -17,13 +17,18 @@
   <!-- endbuild -->
 </head>
 <body class="app" data-ng-app="app">
-<div data-ng-controller="IndexCtrl as indexCtrl" class="hello">
-  <span id="name">{{indexCtrl.introduceYourself()}}</span></div>
-<div>
-  <p class="bind" ng-bind="indexCtrl.introduceYourself()"></p>
-</div>
-</body>
+<section data-ng-controller="IndexCtrl as indexCtrl">
+  <div class="hello">
+    <span id="name">{{indexCtrl.introduceYourself()}}</span></div>
+  <div>
+    <p class="bind" data-ng-bind="indexCtrl.introduceYourself()"></p>
+  </div>
+  <input type="text" data-ng-model="name">
+  <input type="text" data-ng-model="surname">
+  <button data-ng-click="indexCtrl.introduceSomeone(name,surname)">Click me</button>
 </section>
+</body>
+
 
 <!-- process:remove:prod -->
 <script src="../node_modules/systemjs/dist/system.js"></script>

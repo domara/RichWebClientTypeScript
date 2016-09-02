@@ -12,7 +12,9 @@ describe('IndexCtrl test', () => {
   }));
 
   it('introduces itself properly', function () {
-    expect(indexCtrl.introduceYourself()).toBe('My name is James, James Bond');
+    expect(indexCtrl.introduceYourself()).toBe('My name is Bond, James Bond');
+  });it('introduces itself properly', function () {
+    expect(indexCtrl.introduceSomeone('Jon','Example')).toBe('My name is Example, Jon Example');
   });
 });
 
