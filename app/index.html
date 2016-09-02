@@ -16,12 +16,11 @@
   <link rel="stylesheet" href="css/app.css">
   <!-- endbuild -->
 </head>
-<body class="app" data-ng-app="">
-<input type="text" ng-model="name" placeholder="Enter the book title">
-<div class="hello">Hello
-  <span id="name">{{name}}</span></div>
+<body class="app" data-ng-app="app">
+<div data-ng-controller="IndexCtrl as indexCtrl" class="hello">
+  <span id="name">{{indexCtrl.introduceYourself()}}</span></div>
 <div>
-  <p class="bind" ng-bind="name"></p>
+  <p class="bind" ng-bind="indexCtrl.introduceYourself()"></p>
 </div>
 </body>
 </section>

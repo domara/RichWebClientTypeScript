@@ -46,6 +46,7 @@
     "gulp-util": "3.0.7",
     "gulp.spritesmith": "6.2.1",
     "http-proxy": "1.13.3",
+    "jasmine": "^2.5.0",
     "jasmine-core": "2.4.1",
     "karma": "0.13.22",
     "karma-chrome-launcher": "1.0.1",
