@@ -1,2 +1,2 @@
-import "angular";
-import "angular-mocks";
+import 'angular';
+import 'angular-mocks';

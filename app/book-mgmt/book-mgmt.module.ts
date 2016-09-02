@@ -1,4 +1,4 @@
-import {addBookDetailsStateDef} from "./book-details/book-details.state-def";
+import {addBookDetailsStateDef} from './book-details/book-details.state-def';
 
 let bookMgmtModule:ng.IModule = angular.module('book-mgmt', ['ui.router'])
   .config(function ($stateProvider:ng.ui.IStateProvider) {
