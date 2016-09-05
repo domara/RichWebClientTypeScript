@@ -8,7 +8,7 @@ export function addBookDetailsStateDef($stateProvider:angular.ui.IStateProvider)
       resolve: {
         /* @ngInject */
         currentBook: function () {
-          return {author: 'John Smith', title: 'AngularJS in a nutshell'}
+          return {author: 'John Smith', title: 'AngularJS in a nutshell'};
         }
       }
     });
