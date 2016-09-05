@@ -3,7 +3,14 @@ export function addBookDetailsStateDef($stateProvider:angular.ui.IStateProvider)
     {
       url: '/book-mgmt/books',
       templateUrl: 'book-mgmt/book-details/book-details.html',
-      resolve: {}
+      controller: 'BookDetailsCtrl',
+      controllerAs: 'bookDetailsCtrl',
+      resolve: {
+        /* @ngInject */
+        currentBook: function () {
+          return {author: 'John Smith', title: 'AngularJS in a nutshell'}
+        }
+      }
     });
 
 }

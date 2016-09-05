@@ -1,3 +1,9 @@
-/**
- * Created by MADOMARA on 02/09/2016.
- */
+import {IBook} from '../../general/interfaces/book.interface';
+
+export class BookDetailsCtrl {
+  book:IBook;
+  /* @ngInject */
+  constructor(private currentBook:IBook) {
+    this.book = this.currentBook;
+  }
+}
