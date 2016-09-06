@@ -1,4 +1,4 @@
-export default function appNavDirective() {
+export function appNavDirecrive() {
   return {
     restrict: 'E',
     templateUrl: 'general/navigation/app-nav.html',

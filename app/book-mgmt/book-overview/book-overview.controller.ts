@@ -1,9 +1,9 @@
-export default class BookOverviewCtrl {
+export class BookOverviewCtrl {
   /* @ngInject */
   constructor(private currentBooks:any) {
   }
 
-  thereAreBooksToDisplay = function () {
+  thereAreBooksToDisplay():boolean {
     return this.currentBooks && this.currentBooks.length > 0;
   };
 }

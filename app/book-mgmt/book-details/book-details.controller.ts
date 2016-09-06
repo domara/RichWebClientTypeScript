@@ -1,7 +1,9 @@
-import BookService from '../book.service';
+import {IBook} from '../../general/interfaces/book.interface';
+import {BookService} from '../book.service';
 
-export default class BookDetailsCtrl {
+export class BookDetailsCtrl {
   bookForm:any;
+  book:IBook;
 
   private static createErrorMessage(errorObject:any):string {
     var errorCode;
@@ -22,7 +24,16 @@ export default class BookDetailsCtrl {
   };
 
   /* @ngInject */
-  constructor(private currentBook:any, private bookService:BookService, private $state:ng.ui.IStateService) {
+  constructor(private currentBook:IBook, private bookService:BookService, private $state:ng.ui.IStateService) {
+    this.book = this.currentBook;
+  }
+
+  save():void {
+    let formIsValid = this.bookForm && this.bookForm.$valid;
+    if (formIsValid) {
+      this.bookService.save(this.currentBook);
+      this.$state.go('book-overview');
+    }
   }
 
   getErrorMessageOfField(field:any):string {
@@ -36,11 +47,4 @@ export default class BookDetailsCtrl {
     }
   }
 
-  save():void {
-    var formIsValid = this.bookForm && this.bookForm.$valid;
-    if (formIsValid) {
-      this.bookService.save(this.currentBook);
-      this.$state.go('book-overview');
-    }
-  };
 }

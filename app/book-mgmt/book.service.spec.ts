@@ -1,12 +1,14 @@
 import 'angular';
-import BookService from './book.service';
+import {BookService} from './book.service';
+import {IBook} from '../general/interfaces/book.interface';
 
 describe('Service: books', function () {
   beforeEach(angular.mock.module('book-mgmt'));
 
   it('allows saving a book and finding it', inject(function (bookService:BookService) {
     // given
-    var book = {author: 'John Smith', title: 'AngularJS in a nutshell'}, bookId;
+    let book:IBook = {author: 'John Smith', title: 'AngularJS in a nutshell'},
+      bookId:number;
     // when
     bookService.save(book);
     // then
@@ -16,10 +18,10 @@ describe('Service: books', function () {
 
   it('gets all books saved', inject(function (bookService:BookService) {
     // given
-    var
-      book1 = {author: 'John Smith', title: 'AngularJS in a nutshell'},
-      book2 = {author: 'Gavin King', title: 'Hibernate in Action'},
-      savedBooks;
+    let
+      book1:IBook = {author: 'John Smith', title: 'AngularJS in a nutshell'},
+      book2:IBook = {author: 'Gavin King', title: 'Hibernate in Action'},
+      savedBooks:IBook[];
     // when
     bookService.save(book1);
     bookService.save(book2);
@@ -29,3 +31,8 @@ describe('Service: books', function () {
     expect(savedBooks[1]).toEqual(book2);
   }));
 });
+
+
+
+
+
