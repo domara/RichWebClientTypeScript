@@ -31,8 +31,9 @@ export class BookDetailsCtrl {
   save():void {
     let formIsValid = this.bookForm && this.bookForm.$valid;
     if (formIsValid) {
-      this.bookService.save(this.currentBook);
-      this.$state.go('book-overview');
+      this.bookService.save(this.currentBook).then(() => {
+        this.$state.go('book-overview', {}, {reload: true});
+      });
     }
   }
 

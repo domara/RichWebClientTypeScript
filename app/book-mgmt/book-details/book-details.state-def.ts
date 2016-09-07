@@ -1,5 +1,4 @@
 import {BookService} from '../book.service';
-import {IBook} from '../../general/interfaces/book.interface';
 export function addBookDetailsStateDef($stateProvider:angular.ui.IStateProvider) {
   let bookIdParamName = 'bookId';
   return $stateProvider.state('book-details',
@@ -13,7 +12,7 @@ export function addBookDetailsStateDef($stateProvider:angular.ui.IStateProvider)
         currentBook: function ($stateParams:ng.ui.IStateParamsService, $location:ng.ILocationService, bookService:BookService) {
           let bookIdParamValue:string = $stateParams[bookIdParamName];
           if (bookIdParamValue) {
-            let currentBook:IBook = bookService.findOne(parseInt(bookIdParamValue, 10));
+            let currentBook = bookService.findOne(parseInt(bookIdParamValue, 10));
             if (currentBook) {
               return currentBook;
             } else {

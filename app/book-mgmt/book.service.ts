@@ -1,40 +1,24 @@
 import {IBook} from '../general/interfaces/book.interface';
+import {BookRestService} from './book.rest.service';
 
 
 export class BookService {
-  private books:IBook[] = [];
-  private sequencer:number = 1;
 
-  findOne(id:number):IBook {
-    let orginalBook:IBook = this.findBookById(id);
-    if (orginalBook) {
-      return angular.copy(orginalBook);
-    }
+  /* @ngInject */
+  constructor(private bookRestService:BookRestService) {
   }
 
-  save(bookToSave:IBook):void {
-    let originalBook:IBook;
-    if (bookToSave.id) {
-      originalBook = this.findBookById(bookToSave.id);
-      if (originalBook) {
-        angular.copy(bookToSave, originalBook);
-      }
-    } else {
-      bookToSave.id = this.sequencer++;
-      this.books.push(bookToSave);
-    }
-
+  findOne(id:number) {
+    return this.bookRestService.findBookById(id);
   }
 
-  findAll():IBook[] {
-    return this.books;
+  save(bookToSave:IBook):any {
+    return this.bookRestService.addBook(bookToSave);
   }
 
-  private findBookById(id:number):IBook {
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].id === id) {
-        return this.books[i];
-      }
-    }
+  findAll():any {
+    return this.bookRestService.getBooks();
   }
+
+
 }
